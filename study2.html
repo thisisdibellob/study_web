@@ -34,6 +34,41 @@
 
             <input type="radio" name="same" value="1"> 라디오1      <!--같은 name끼리만 radio 기능-->
             <input type="radio" name="same" value="2"> 라디오2 <br>
+
+            <select name="justName" size="3" multiple > <!--multiple은 중복 선택 가능-->
+                <option value="1"> 선택1 </option>
+                <option value="2"> 선택2 </option>
+                <option value="3" selected> 선택3 </option>
+            </select> <br>
+
+            <label for="id"> 이게 캡션임 </label>   <!--label은 캡션을 묶음-->
+            <input type="text" id="id"> <br>
+
+            <label> 이게 캡션임 <input type="text" id="id"> </label> <br>
+
+            <input type="color" value="#00BFFF"> <br>
+
+            <input type="month"> <br>
+            <input type="week"> <br>
+            <input type="date" value="29"> <br>
+            <input type="datetime-local"> <br>
+            <input type="time"> <br>
+
+            <input type="number" min="0" max="100" step="2" value="10"> <br>
+
+            <input type="range" min="0" max="100" list="justList">
+            <datalist id="justList">
+                <option value="10" label="Low"> </option>
+                <option value="50" label="Medium"> </option>
+                <option value="90" label="High"> </option>
+            </datalist> <br>
+
+            <input type="email" placeholder="id@gmail.com 힌트주기">
+
+            <fieldset>
+                <legend> 제목 </legend>
+                <input type="text" placeholder="폼요소 그루핑">
+            </fieldset>
             
         </form>
         
