@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> 웹 타이틀 </title>
+
+        <!-- 스타일시트 불러오는 방법 1 -->
+        <link href="mystyle.css" type="text/css" rel="stylesheet">
+
+
+        <style>
+
+            /* 스타일시트 불러오는 방법 2 */
+            @import url(mystyle.css);
+            
+            /* h3 : 셀렉터 / color : 프로퍼티 / plum : 값 */
+            h3 {color: plum; text-align: center;}
+            hr {border: 10px solid;}
+            span {font-size : 20px;}
+
+            body {
+                background-color: linen;
+                margin: 20px;
+            }
+
+            .className { color : red }
+
+            p.wow { color : blue }
+
+            #idName { color : green }
+
+            p > strong {background: yellow;}  /* 자식 셀렉터 */
+
+            /*  전체 셀렉터 *{color : green;}   */
+
+            /*  속성 셀렉터 input[typ=text] {color : green;}   */ 
+
+            a:hover { color : gold }  /* 가상 클래스 셀렉터 */
+
+            div.fdiv {
+                background: yellow;
+                padding: 20px;
+                border : 5px dotted red;
+                margin : 30px;
+            }
+
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h3> 그냥 문장 </h3>
+
+        <hr>
+
+        <p> 그냥 <span> 스판 연습 </span> 용 문장 </p>
+
+        <p style="color: aqua; font-size: large;"> html 태그의 style 속성 </p>
+
+        <p class="className"> 클래스 셀렉터 </p>
+
+        <p class="wow"> 지정하기 </p>
+
+        <p id="idName"> 아이디 셀렉터 </p>
+
+        <!-- class는 그룹으로 스타일 적용할 떄 / id는 특정 태그에만 스타일 적용할 떄 -->
+
+        <p> just <strong> just </strong> just </p>
+
+        <a id="idOfA"> 마우스 올라갈 떄 스타일 적용 </a> <br><br>
+
+        <a href="http://www.naver.com" style="text-decoration : none"> 하이퍼링크 밑줄 제거 </a>
+
+        <p style="text-decoration: line-through;"> 중간 줄 </p>
+        <p style="text-decoration: overline;"> 윗 줄 </p>
+        <p style="text-indent: 3em;"> 3글자 들여쓰기 </p>
+        <p style="text-align: center;"> 중앙 정렬 </p>
+
+        <p style="font-size: 3em;"> 현재 폰트 사이즈 3배 </p>
+        <p style="font-family: serif;"> 폰트 변경 </p>
+        <p style="font-weight: 900;"> 폰트 굵기</p>
+        <p style="font : italic bold 20px Arial"> font 단축 프로퍼티 </p>
+
+        <div class="fdiv"> ㅎㅇ </div>
+
+        <p style="border-radius: 0px 20px 40px 60px; 
+                  border-style: dotted; 
+                  background: greenyellow;"> ㅎㅇ 
+        </p>
+
+        <div style="background-image: url(image.png);
+                    background-repeat: repeat-y;
+                    background-position: center center;">
+                    ㅎㅇ
+        </div>
+
+        <div style="color: yellow;
+                    font-size : 20px;
+                    text-shadow: 2px 2px 2px black,
+                                 0px 0px 25px blue,
+                                 0px 0px 5px darkblue;">
+            real hi
+        </div>
+                
+
+
+    </body>
