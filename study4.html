@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> 애니메이션 </title>
+
+        <style>
+
+
+            p#a { display: inline;}
+
+            div#b:hover {
+                position : relative;
+                left : 50px;
+                top : 50px;
+            }
+
+            div#c {
+                position: absolute;
+                left : 200px;
+                top : 200px;
+            }
+
+            div#d {
+                position: fixed;
+                right : 50px;
+                bottom: 50px;
+            }
+
+            div#e {
+                float : right;
+                border : 1px dotted black;
+            }
+
+            div#f { z-index: -3; position: absolute; left: 20px; top: 20px; }
+            div#g { z-index: 3; position: absolute}
+
+            p#hidden { overflow: hidden;}
+            p#visible { overflow: visible;}
+            p#scroll { overflow: scroll;}
+
+            ul{
+                background : goldenrod;
+                padding : 10px 10px 10px 50px;
+                list-style-position : inside;  /*리스트 구분 떙땡이 위치 세부 리스트 안으로 */
+            }
+            li{
+                background : greenyellow;
+                margin-bottom : 5px;
+            }
+
+
+
+
+            @keyframes bomb {
+                from { font-size : 500%;}
+                to { font-size : 100%;}
+            }
+
+            h3 {
+                animation-name : bomb;
+                animation-duration : 3s;
+                animation-iteration-count : infinite;
+            }
+
+        
+            h2 { transition: font-size 5s; }
+            h2:hover { font-size: 500%; }
+
+            div#rotate { transform : rotate(20deg); }
+            div#skew { transform : skew(0deg,-20deg); }
+            div#translate { transform : translateY(100px); }
+            div#scale { transform : scale(3,1); }
+
+        </style>
+    </head>
+
+
+
+    <body>
+
+        <p id="a"> 디스플레이 인라인 박스 </p>
+
+        <div style="display: none"> 안보임 </div>
+
+        <div id="b" style="width: 100px; height: 100px; background-color : green;"> </div>
+
+        <div id="c"> absoulute </div>
+
+        <div id="d"> fixed </div>
+
+        <div id="e"> float 한 쪽에 항상 배치 </div>
+
+        <div style="position: absolute;">
+            <div id="f" style="width: 100px; height: 100px; background-color: green;"> -3 </div>
+            <div id="g" style="width: 100px; height: 100px; background-color: yellow;"> 3 </div>
+        </div>
+
+        <div> visibility hidden <span style="visibility: hidden;"> 안보이지 </span> 공간만 차지하고 안 보임 </div>
+
+
+        <br> <br><br><br>
+        <p id="hidden" style="width : 15em; height : 2em; border : 1px solid lightgray;"> overflow hidden aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </p>
+        <p id="visible" style="width : 15em; height : 2em; border : 1px solid lightgray;"> overflow visible aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </p>
+        <p id="scroll" style="width : 15em; height : 2em; border : 1px solid lightgray;"> overflow hidden aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </p>
+
+
+        <ul style="list-style-type: circle">    <!--list-style-image로 땡땡이 이미지로 바꿀 수 있음-->
+            <li> aaaaaa</li>
+            <li> bbbbb</li>
+            <li> cccccc</li>
+        </ul>
+
+
+        <h3> 꽝 </h3>
+
+        <h2> 쿠쾅 </h2>
+
+
+        <div id="rotate">rotate 20 deg</div>
+        <div id="skew">skew(0,-20deg)</div>
+        <div id="translate">translateY(100px)</div>
+        <div id="scale">scale(3,1)</div>
+        
+
+       
+
+    </body>
