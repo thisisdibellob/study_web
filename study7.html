@@ -1,0 +1,128 @@
+
+
+
+[ HTML DOM (Document Object Model) ]
+
+DOM
+- HTML 태그가 출력된 모양이나 콘텐츠를 제어하기 위해
+- JavaScript가 HTML 문서에 접근하여 동적으로 콘텐츠나 스타일을 조작할 수 있는 표준화된 방법을 제공합니다
+
+DOM 트리
+- DOM 트리는 부모 자식 관계
+- DOM 트리의 루트는 document 객체
+
+DOM 객체
+- HTML 태그 당 하나의 DOM 객체 생성
+- DOM 노드(Node), DOM 엘리먼트(Element) 라고도 불림
+
+
+
+브라우저가 HTML 태그를 화면에 그리는 과정
+1. 브라우저가 DOM 트리의 틀(document 객체) 생성
+2. 브라우저가 HTML 태그를 읽고 DOM 트리에 DOM 객체 생성
+3. 브라우저는 DOM 객체를 화면에 출력
+4. HTML 문서 로딩이 완료되면 DOM 트리 완성
+5. DOM 객체 변경 시, 브라우저는 해당 HTML 태그의 출력 모양을 바로 갱신
+
+
+HTML 태그 (엘리먼트) 구성
+- 엘리먼트 이름 / 태크 이름
+- 속성
+- CSS3 스타일
+- 이벤트 리스너
+- 콘텐츠(innerHTML) / 글자 or span 같은거
+
+
+<p id="firstP"
+    style="color:blue; background:yellow"
+    onclick="this.style.color='teal'">
+    이것은 <span style="color:red">문장입니다.</span>
+</p>
+<script>
+    let p = document.getElementById("firstP");
+    let text = "p.id = " + p.id + "\n";
+        text += "p.tagName = " + p.tagName + "\n";
+        text += "p.innerHTML = " + p.innerHTML + "\n";
+        text += "p.style.color = " + p.style.color + "\n";
+        text += "너비 = " + p.offsetWidth + "\n";
+        text += "높이 = " + p.offsetHeight + "\n";
+    alert(text);
+</script>
+
+
+DOM 객체의 CSS3 스타일 동적 변경
+    <span id="mySpan" style="color:red">문장입니다.</span>
+    <script>
+        let span = document.getElementById("mySpan"); // id가 mySpan인 객체 찾기
+        span.style.color = "green"; // ‘문장입니다’의 글자 색을 green으로 변경
+        span.style.fontSize = "30px"; // ‘문장입니다’의 폰트를 30px 크기로 변경
+        span.style.display = "block"; // 블록 박스로 변경
+        span.style.width = "6em"; // 박스의 폭. 6 글자 크기
+        span.style.border = "3px dotted magenta"; // 3픽셀 점선 magenta 테두리
+        span.style.margin = "20px"; // 상하좌우 여백 20px
+        span.innerHTML= "나의 <img src=‘puppy.jpg’>강아지입니다.";
+    </script>
+    
+
+    
+this 키워드
+- DOM 객체에서 객체 자신을 가리키는 용도로 사용
+<script>
+    function change(obj, size, color) {
+        obj.style.color = color;
+        obj.style.fontSize = size;
+    }
+</script>
+<div onclick="change(this, '25px', 'orange')"> 여기 클릭하면 크기와 색 변경 </div>
+
+
+
+DOM 트리에서 DOM 객체 찾기
+
+태그 이름으로 찾기 : document.getElementsByTagName("div");
+ - 태그 이름이 같은 모든 DOM 객체들을 찾아 컬렉션 리턴
+ - ley divArray = 로 받아오면 divArray[1] 등으로 이용 가능
+class 속성으로 찾기 : document.getElementsByClassName("className");
+ - class 속성이 같은 모든 DOM 객체들을 찾아 컬렉션 리턴
+
+
+ HTML 페이지 로딩 과정
+1. 브라우저는 HTML 페이지 로드 전 빈 상태 document 생성
+2. 브라우저는 HTML 페이지를 위에서 아래로 해석
+3. HTML 태그들을 document 객체에 담아간다(DOM 객체 생성).
+4. </html> 태그를 만나면 document 객체를 완성하고 닫는다.
+
+write() : document 객체에 담긴 HTML 콘텐츠 마지막에 HTML 태그들을 추가
+document.write를 하면 html 마지막줄 부터 추가됨
+<body onclick="document.write('<h3>클릭되었습니다</h3>')"></body>
+ㄴ 이렇게 쓰면 html내용이 지워지고 write내용만 나옴
+
+document.open()
+- 현재 브라우저에 출력된 HTML 콘텐츠를 지우고 새로운 HTML 페이지 시작. 
+  즉 document 객체에 담긴 DOM 트리를 지우고 새로 시작
+document.close()
+- 현재 브라우저에 출력된 HTML 페이지 완성
+- 더 이상 document.write() 할 수 없음
+
+새 윈도우를 열고 그곳에 HTML 문서 출력
+let newWin = window.open(“”, “outWin”, “”);
+
+
+
+
+DOM 객체 동적 생성
+    let newDIV = document.createElement("div");
+    newDIV.innerHTML = "새로 생성된 DIV입니다.";
+    newDIV.setAttribute("id", "myDiv");
+    newDIV.style.backgroundColor = "yellow";
+
+DOM 트리에 삽입
+    let p = document.getElementById("p");
+    p.appendChild(newDiv);  //부모의 맨 뒤에 추가됨
+    p.pretendChild(newDiv);  //부모의 맨 앞에 추가됨 ????????????
+    p.insertBefore(a,b);  //a바로 앞에 b 삽입
+
+DOM 객체의 삭제
+    let myDiv = document.getElementById("myDiv");
+    let parent = myDiv.parentElement;
+    parent.removeChild(myDiv); 
